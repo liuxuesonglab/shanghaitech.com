@@ -1,8 +1,26 @@
-<p>Hello 大家好</p>
-<p>我是霸都丶傲天，这是我的个人网站。 </p>
-<p>很高兴你来到这里, 你可以在以下的网站找到我</p>
+author_profile: false or true
+### reversed
+{% for post in site.talks %}
+  {% include archive-single-talk.html %}
+{% endfor %}
 
-<ul>
-  <li> <a href="https://www.zhihu.com/people/AJLoveChina">知乎</a> </li>
-  <li> <a href="http://hejie.nigeerhuo.com">我的博客(已经不更细了,现在在知乎写文章)</a> </li>
-</ul>
+{% for post in site.talks reversed %}
+  {% include archive-single-talk.html %}
+{% endfor %}
+collections:
+  people:
+    output: true
+    permalink: /:collection/:path/
+ 
+defaults:
+  # _people
+  - scope:
+      path: ""
+      type: people
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
